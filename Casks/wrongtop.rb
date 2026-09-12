@@ -6,8 +6,9 @@ cask "wrongtop" do
 
   # macOS-only content: without this stanza brew readall (4.x) evaluates
   # the cask for Linux and rejects it over a nil Linux sha256. Floor
-  # matches the Go 1.26 darwin toolchain (macOS 12+).
-  depends_on macos: ">= :monterey"
+  # matches the Go 1.26 darwin toolchain (macOS 12+); symbol form is the
+  # non-deprecated DSL (">= :monterey" string comparison is deprecated).
+  depends_on macos: :monterey
 
   on_arm do
     url "https://github.com/wrongstack/wrongtop/releases/download/v#{version}/wrongtop_darwin_aarch64.tar.gz"
